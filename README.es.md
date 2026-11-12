@@ -16,10 +16,6 @@ Code y un método documentado. Mide el contexto que cargan tus agentes al empeza
 evita que vuelva a crecer. El motor usa solo la biblioteca estándar, lee archivos, no usa la red y
 no llama a ninguna IA.
 
-> **Sobre `<owner>`.** El repositorio público todavía no tiene su ubicación definitiva. Cada
-> `<owner>/declutter` de este README (y del plugin) es un marcador de la cuenta de GitHub que lo
-> alojará; reemplázalo por esa cuenta cuando el repositorio se publique.
-
 ## Antes y después
 
 Es común que la misma regla de seguridad termine pegada en varias secciones de `CLAUDE.md`.
@@ -63,7 +59,7 @@ CLAUDE.md                                    AGENTS.md
 Motor (Python 3.11 o superior), directo desde el repositorio con pipx:
 
 ```bash
-pipx install git+https://github.com/<owner>/declutter
+pipx install git+https://github.com/nodo-salud-lab/declutter
 declutter --version
 ```
 
@@ -75,7 +71,7 @@ Plugin de Claude Code (opcional; llama al comando `declutter`, así que instala 
 El repositorio funciona también como marketplace llamado `declutter`:
 
 ```text
-/plugin marketplace add <owner>/declutter
+/plugin marketplace add nodo-salud-lab/declutter
 /plugin install declutter@declutter
 ```
 

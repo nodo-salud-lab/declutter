@@ -12,7 +12,7 @@ Resumen del estado de todos tus repositorios (read-only).
 
 Run `command -v declutter`. If it is missing, reply with exactly one install line and stop:
 
-`pipx install git+https://github.com/<owner>/declutter` (not on PyPI yet; replace `<owner>` with the account that hosts the repository)
+`pipx install git+https://github.com/nodo-salud-lab/declutter` (not on PyPI yet)
 
 ## Default mode
 

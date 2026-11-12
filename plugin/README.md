@@ -1,7 +1,7 @@
 # declutter plugin for Claude Code
 
 This plugin adds seven skills and one hook on top of the `declutter` command-line tool, which must be
-installed first (`pipx install git+https://github.com/<owner>/declutter`; it is not on PyPI yet).
+installed first (`pipx install git+https://github.com/nodo-salud-lab/declutter`; it is not on PyPI yet).
 
 - `/declutter:declutter` is the entry point: it measures, offers `/declutter-reorg` when no
   reorganization exists yet or `/declutter-auto` when one does, and ends by showing what was saved

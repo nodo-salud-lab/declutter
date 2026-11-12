@@ -8,7 +8,7 @@ Requires Python 3.11 or newer (3.11 is the floor: do not use 3.12-only features 
 generics, the `type` statement or `itertools.batched`) and git.
 
 ```bash
-git clone https://github.com/<owner>/declutter.git
+git clone https://github.com/nodo-salud-lab/declutter.git
 cd declutter
 python3 -m venv .venv
 .venv/bin/pip install -e ".[dev]"

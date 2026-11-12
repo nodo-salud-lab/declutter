@@ -13,7 +13,7 @@ hace la skill que corresponde; esta solo ordena el camino y nunca decide por el 
 
 Run `command -v declutter`. If it is missing, reply with exactly one install line and stop:
 
-`pipx install git+https://github.com/<owner>/declutter` (not on PyPI yet; replace `<owner>` with the account that hosts the repository)
+`pipx install git+https://github.com/nodo-salud-lab/declutter` (not on PyPI yet)
 
 Add `-C DIR` to every command below if the user passed one.
 

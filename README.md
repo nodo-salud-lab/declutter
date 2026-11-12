@@ -14,10 +14,6 @@ bloated `CLAUDE.md` / `AGENTS.md` into layers with a byte-level proof that nothi
 keeps it from growing back. The engine uses only the standard library, reads files, never touches
 the network and never calls an AI.
 
-> **About `<owner>`.** The public repository does not have its final home yet. Every
-> `<owner>/declutter` in this README (and in the plugin) is a placeholder for the GitHub account
-> that will host it; replace it with that account once the repository is published.
-
 ## Before and after
 
 The same safety rule often ends up pasted into several sections of `CLAUDE.md`. `declutter reorg`
@@ -61,7 +57,7 @@ CLAUDE.md                                 AGENTS.md
 Engine (Python 3.11 or newer), straight from the repository with pipx:
 
 ```bash
-pipx install git+https://github.com/<owner>/declutter
+pipx install git+https://github.com/nodo-salud-lab/declutter
 declutter --version
 ```
 
@@ -73,7 +69,7 @@ Claude Code plugin (optional; it calls the `declutter` command, so install the e
 repository doubles as a marketplace named `declutter`:
 
 ```text
-/plugin marketplace add <owner>/declutter
+/plugin marketplace add nodo-salud-lab/declutter
 /plugin install declutter@declutter
 ```
 
