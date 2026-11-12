@@ -104,7 +104,7 @@ sus funciones actuales.
 |---|---|---|---|
 | Compresores que reescriben | caveman-compress, squeez | Redactar más corto los archivos de instrucciones o de memoria para ahorrar tokens. | No reescribe tus reglas para ahorrar espacio: cada línea original queda tal cual en una capa, y el único texto acortado (una invariante destilada) se verifica contra su literal, que queda a un enlace. |
 | Separadores de secciones | claudectx | Dividir un archivo de contexto grande en partes más chicas. | Separa según un método de 5 capas y agrega prueba sin pérdida, guardias de seguridad, una rama nueva por cambio y deshacer con un comando. |
-| Linters | ctxlint, instrlint | Revisar archivos de instrucciones e informar problemas. | También mide (nueve señales, S1-S9), y además puede actuar sobre lo encontrado y proteger el resultado con un trinquete. |
+| Linters | ctxlint, instrlint | Revisar archivos de instrucciones e informar problemas; algunos también pueden borrar en el lugar lo que marcan. | Nunca borra una regla: mueve las líneas textuales, prueba byte a byte que no se perdió nada, mide nueve señales (S1-S9) y protege el resultado con un trinquete. |
 | Sincronizadores | rulesync | Mantener las reglas al día entre los formatos de varios agentes. | No convierte formatos: mantiene un solo `AGENTS.md` que Codex lee y Claude Code importa (`@AGENTS.md`). |
 
 Lo que distingue a declutter:

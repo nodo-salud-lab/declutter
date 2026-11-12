@@ -101,7 +101,7 @@ categories in general terms; check each project for its current features.
 |---|---|---|---|
 | Compressors that rewrite | caveman-compress, squeez | Shorter wording of instruction or memory files to save tokens. | Does not rewrite your rules to save space: every original line lands verbatim in one layer, and the only shortened text (a distilled invariant) is checked against its literal, which stays one link away. |
 | Section splitters | claudectx | Split a large context file into smaller pieces. | Splits by a 5-layer method and adds a lossless proof, safety guards, a new branch per change and a one-command undo. |
-| Linters | ctxlint, instrlint | Check instruction files and report problems. | Also measures (nine signals, S1-S9), then can act on the findings and guard the result with a ratchet. |
+| Linters | ctxlint, instrlint | Check instruction files and report problems; some can also strip flagged content in place. | Never deletes a rule: it moves lines verbatim, proves byte by byte that nothing was lost, measures nine signals (S1-S9) and guards the result with a ratchet. |
 | Synchronizers | rulesync | Keep rules in step across several agents' formats. | Does not convert formats: keeps one `AGENTS.md` that Codex reads and Claude Code imports (`@AGENTS.md`). |
 
 What sets declutter apart:
