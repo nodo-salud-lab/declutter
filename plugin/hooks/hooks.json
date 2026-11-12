@@ -1,0 +1,17 @@
+{
+  "description": "declutter: one-line warning at session start when the loaded context is in the red. Never blocks.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "declutter hook session-start 2>/dev/null || true",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

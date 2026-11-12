@@ -1,0 +1,33 @@
+# declutter configuration for this project.
+# Everything is optional: anything you leave out uses the default (shown here, commented out).
+# Precedence: built-in defaults, then the global file, then this file.
+
+# Language of reports and templates: "es" or "en".
+# lang = "en"
+
+# Token estimate = ceil(bytes / bytes_per_token). It is an estimate, not an exact figure.
+# bytes_per_token = 3.6
+
+# AGENTS.md budget that Codex reads by default (project_doc_max_bytes).
+# codex_budget_bytes = 32768
+
+# Maximum hops when resolving @imports in CLAUDE.md.
+# import_max_depth = 4
+
+# MEMORY.md load cap used by Claude Code.
+# memory_max_lines = 200
+# memory_max_bytes = 25600
+
+# Per-signal thresholds: [yellow, red]. A value strictly greater triggers the level.
+# [thresholds]
+# S1 = [200, 400]            # root instruction lines (CLAUDE.md + AGENTS.md)
+# S2 = [8000, 20000]         # estimated tokens loaded at Claude Code startup
+# S3 = [60, 100]             # % of the Codex project-doc budget used
+# S4 = [20, 40]              # % of "##" headings that look like a changelog entry
+# S5_lines = [150, 190]      # MEMORY.md lines
+# S5_bytes = [18432, 24576]  # MEMORY.md bytes
+# S6 = [5, 10]               # compactions in the most recent session
+# S7 = [7, 21]               # days since STATE.md was updated
+# S8_branches = [50, 150]    # local branches already merged
+# S8_worktrees = [10, 20]    # git worktrees
+# S9 = [20, 100]             # handoff or plan docs without a "status:" header

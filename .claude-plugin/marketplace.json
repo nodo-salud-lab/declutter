@@ -1,0 +1,14 @@
+{
+  "name": "declutter",
+  "description": "declutter: context hygiene and project radar for AI coding agents",
+  "owner": {
+    "name": "declutter contributors"
+  },
+  "plugins": [
+    {
+      "name": "declutter",
+      "source": "./plugin",
+      "description": "Measure the context your agents load, diagnose hygiene problems and keep a radar of your projects."
+    }
+  ]
+}

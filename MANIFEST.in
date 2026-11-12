@@ -1,0 +1,8 @@
+include README.md README.es.md CHANGELOG.md CONTRIBUTING.md SECURITY.md LICENSE
+recursive-include tests *.py
+recursive-include docs *.md
+recursive-include src/declutter_context/templates *
+recursive-include src/declutter_context/templates_reorg *
+global-exclude __pycache__ *.py[cod]
+recursive-include plugin *.md *.json
+recursive-include .claude-plugin *.json

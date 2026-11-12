@@ -1,0 +1,8 @@
+{
+  "name": "declutter",
+  "version": "0.4.0",
+  "description": "Measure and tidy the context your AI agents load (CLAUDE.md, AGENTS.md, memory) and keep a radar of all your projects.",
+  "author": { "name": "declutter contributors" },
+  "license": "MIT",
+  "keywords": ["context", "claude-md", "agents-md", "memory", "hygiene", "radar"]
+}

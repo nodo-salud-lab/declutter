@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }} / py${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # macOS runners are scarce on GitHub; one macOS job is enough to catch
+        # platform differences, the full Python range runs on Ubuntu.
+        os: [ubuntu-latest]
+        python: ["3.11", "3.12", "3.13"]
+        include:
+          - os: macos-latest
+            python: "3.12"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check src tests
+      - name: Format check
+        run: ruff format --check src tests
+      - name: Type check
+        run: mypy src
+      - name: Tests
+        run: pytest -q
+      - name: CLI smoke test
+        run: declutter --version
+      - name: Build and smoke-test the wheel (templates must ship in package data)
+        run: |
+          python -m pip install build
+          python -m build
+          python -m venv "$RUNNER_TEMP/wheel-venv"
+          "$RUNNER_TEMP/wheel-venv/bin/pip" install dist/*.whl
+          work="$(mktemp -d)"
+          cd "$work"
+          git init -q
+          "$RUNNER_TEMP/wheel-venv/bin/declutter" init --lang en
+          test -f AGENTS.md && test -f STATE.md && test -f docs/decisions/INDEX.md
+          "$RUNNER_TEMP/wheel-venv/bin/declutter" measure --json > /dev/null
+          # templates_reorg ships in the wheel (8 files per language) and `declutter init` creates none of them.
+          "$RUNNER_TEMP/wheel-venv/bin/python" - <<'PY'
+          import importlib.resources as r
+          from pathlib import Path
+          names = set()
+          for lang in ("es", "en"):
+              files = sorted(p.name for p in (r.files("declutter_context") / "templates_reorg" / lang).iterdir())
+              assert len(files) == 8, (lang, files)
+              names.update(files)
+          created = {p.name for p in Path(".").rglob("*") if ".git" not in p.parts}
+          assert not created & names, sorted(created & names)
+          assert not Path("templates_reorg").exists()
+          PY
+          # A dry-run plan on the minimal project writes nothing and exits 0 or 3.
+          set +e
+          "$RUNNER_TEMP/wheel-venv/bin/declutter" reorg plan --dry-run --json > /dev/null
+          code=$?
+          set -e
+          test "$code" -eq 0 -o "$code" -eq 3
+          test ! -e .declutter
